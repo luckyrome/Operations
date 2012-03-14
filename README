@@ -1,0 +1,10 @@
+# Author Ramil Nobleza
+# Repo Description : A collection of useful things I've made to help with (semi) automation of 
+# various services around my computers. Some things will be very silly while others make having
+# a dual-boot HTPC possible. 
+
+contained modules:
+- windows:
+A couple scripts which help me boot to and from Ubuntu/Windows without needing to have access to a physical keyboard.
+This helps when I ssh in and need to access something in my Windows environment or I'm RDCd in and I need a Unix 
+command line/build environment.

@@ -1,0 +1,12 @@
+#!/bin/bash
+# windows=`grep menuentry /boot/grub/grub.cfg | sed "1 d" | grep -n 'Windows 7' | sed 's/\:.*//';` 
+
+# As you can see above, I used to have this kind of "Automagic" way of figuring out
+# which slot my Windows was stationed. Unfortunately at some point Ubuntu/grub strated 
+# auto-hiding entries, so I had to use this.
+# @todo: figure out hiding algorithm so I can actually re-instate an auto windows finder
+windows=6
+sed -i.backup -r 's/GRUB_DEFAULT=([0-9]+)/GRUB_DEFAULT='$windows'/' /etc/default/grub
+update-grub
+reboot
+exit

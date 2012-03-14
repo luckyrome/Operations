@@ -1,0 +1,60 @@
+What you need for these scripts to work:
+========================================
+
+- A dual boot environment
+
+- /boot on a FAT32 (or NTFS?) volume. 
+
+Usage 
+=====
+
+- In Windows:
+    `ubu.bat` 
+    ... OR create a link you can click and give it a pretty icon :)
+
+- In Ubuntu:
+    `sudo windows`
+    ... No icon for you! SSH in like a real ops person!
+
+Notes and troubleshooting! 
+==========================
+
+1. The '/ubuntu/windows' file goes in /usr/sbin/ (or wherever your super user 
+   bins are) This is so you can type "sudo windows" and it makes sense. Also, 
+   it's `sudo` because we're editing files on /boot
+
+2. ubu.bat goes wherever you want. I placed it under C:\util\. This batch file
+   depends on sed.exe, which came from:
+
+   http://gnuwin32.sourceforge.net/packages/sed.htm
+
+   ... at least that's where I think they originated from. Honestly I Googled
+   'sed on windows' and it originally came with other cool unix-like things
+   which I scrapped because I only needed this one piece. Trust me, I tried
+   to use built in DOS functionality before grabbing this.
+
+3. ubu.bat assumes /boot is the d: drive! Make sure this matches your system 
+   configuration (or at least change ubu.bat to match).
+
+Notes on getting a FAT32 /boot volume:
+======================================
+- I can't tell you any more how I did it... but let me try:
+
+I believe I installed Windows, then Linux, moved the /boot stuff to the FAT32
+partition then edited /etc/fstab to use the new ID for /boot (which I got by
+using blkid). THEN I had to regenerate the grub files. You will invariably (or
+not) bork your grub installation. In order to do this whole set up manually I
+suggest being versed with (or at least being able to learn quickly) the grub
+bootloader's CLI (command-line interface).
+
+Why FAT32?
+==========
+I know a lot of people are like "You can't
+have that" or "Why would you want that?". It's because I want to change the
+default boot selection from Windows, and since Windows can't know about ext3fs
+(reliably), I figured I'd go with a FAT32 partition for /boot. It's small enough
+to negate any performance benefits from ext2/3/4, and it's not like I'm running
+particularly advanced systems. I didn't pick NTFS because I had problems in
+Ubuntu with NTFS in the past and I don't want to try to recover my whole hard
+drive again... -__-
+
