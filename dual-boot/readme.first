@@ -58,3 +58,12 @@ particularly advanced systems. I didn't pick NTFS because I had problems in
 Ubuntu with NTFS in the past and I don't want to try to recover my whole hard
 drive again... -__-
 
+Side effects of using a non-journaling File System for /boot
+============================================================
+1) You can't easily update your kernel. This is because Linux requires a 
+file system with journaling enabled for update. The only known work around
+I've found is to change /boot to ext3/ext4 then upgrade kernel then convert
+back (a non-trivial amount of work, especially if you deal with /etc/fstab)
+
+@todo: Write a "vfat-ext4" auto-conversion script which will handle this for
+kernel upgrades
