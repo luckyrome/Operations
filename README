@@ -7,5 +7,8 @@ A couple scripts which help me boot to and from Ubuntu/Windows without needing t
 This helps when I ssh in and need to access something in my Windows environment or I'm RDCd in and I need a Unix 
 command line/build environment.
 
+- motd:
+A collection of small scripts which all have to do with adding to the message of the day (motd) shown in terminal logins
+
 - scripts:
 A collection of smaller scripts which probably aren't big enough to be their own thing (in fact a lot of them can probably just be copied into a big .bashrc or .profile)
