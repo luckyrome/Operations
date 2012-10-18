@@ -1,0 +1,3 @@
+#!/bin/sh
+# Prints out easily digestable information about this system's raid arrangements
+ls /dev/md* | egrep "md[0-9]*\$" | xargs mdadm --detail | egrep -i "(/dev/|State|Persistence|degraded)"
