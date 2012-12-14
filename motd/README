@@ -8,6 +8,7 @@ Notes:
 - [raid-status] I tried to strip out additional extrenuous information using grep
 - [raid-status] This seems useful for systems with < 5 raid arrays running (as it may just overwhelm the terminal like some IRC login motd's)
 - [raid-status] Didn't use `cat /proc/mdstat/` because I like the output of mdadm better =]
+- [remote-login-history] Useful for paranoid people who are too lazy to set up a decent monitoring system :p
 - [general] Made the update-motd.d scripts like the others there - basically just exec a script instead of have a script written in it
 
 Usage:

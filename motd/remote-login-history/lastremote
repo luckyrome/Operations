@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#      logins > remote   > the first word (aka user-name)     | remove empty lines       | sort&unique | output nicely with tabs
+wholast=`last | grep pts |  sed "s/\(^[[:graph:]]\+\).*/\1/g" | grep -v "^[[:space:]]*$" | sort | uniq | awk -vRS="\n" -vORS="\t" "1"`
+
+# logins full hosts > remote   > the last word (aka hosts)> forget ":0"  > sort&unique | output nicely with tabs 
+wherelast=`last -aw | grep pts | grep -o "[[:graph:]]\+$" | grep -v ":0" | sort | uniq | awk -vRS="\n" -vORS="\t" "1"`
+
+#format output
+echo "
+[users]
+$wholast
+
+[clients]
+$wherelast
+"
